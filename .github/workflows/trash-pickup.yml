@@ -2,10 +2,7 @@ name: TRMNL Trash Pickup
 
 on:
   schedule:
-    # Runs every Sunday at 12:00 UTC (8am EDT / 7am EST).
-    # Adjust the hour if you want it to land at a different local time —
-    # GitHub Actions cron is always UTC and doesn't shift for daylight saving.
-    - cron: "0 12 * * 0"
+    - cron: "39 0 * * *"
   workflow_dispatch: {} # lets you trigger it manually from the Actions tab to test
 
 jobs:
