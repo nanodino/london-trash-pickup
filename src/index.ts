@@ -29,8 +29,10 @@ function summarize(extras: Pickup["extras"]): string {
 }
 
 function findUpcomingPickup(today: Date): Pickup | undefined {
-  return PICKUPS.filter((p) => parseISODate(p.date).getTime() >= today.getTime()).sort(
-    (a, b) => parseISODate(a.date).getTime() - parseISODate(b.date).getTime()
+  return PICKUPS.filter(
+    (p) => parseISODate(p.date).getTime() >= today.getTime(),
+  ).sort(
+    (a, b) => parseISODate(a.date).getTime() - parseISODate(b.date).getTime(),
   )[0];
 }
 
@@ -44,14 +46,14 @@ async function main() {
 
   if (!next) {
     console.warn(
-      "No upcoming pickup dates found in schedule.ts — it likely needs to be extended. Skipping send."
+      "No upcoming pickup dates found in schedule.ts — it likely needs to be extended. Skipping send.",
     );
     return;
   }
 
   const pickupDate = parseISODate(next.date);
   const daysUntil = Math.round(
-    (pickupDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
+    (pickupDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24),
   );
 
   const payload = {
